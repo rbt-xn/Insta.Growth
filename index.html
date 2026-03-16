@@ -3,116 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insta Growth</title>
+    <title>Insta Growth | Premium Social Boost</title>
     
-    <link rel="apple-touch-icon" href="662625.jpg">
     <link rel="icon" type="image/jpg" href="662625.jpg">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Insta Growth">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root { 
-            --primary: #a855f7; --accent-blue: #0ea5e9; --brand-gradient: linear-gradient(135deg, #0ea5e9 0%, #a855f7 100%); 
-            --bg-dark: #070a13; --card-bg: #0f172a; --input-bg: #1e293b; --border-color: #1e293b;
-            --text-main: #f8fafc; --text-dim: #94a3b8; --success: #22c55e; --danger: #ef4444;
-        }
-
-        body.light-mode {
-            --bg-dark: #f1f5f9; --card-bg: #ffffff; --input-bg: #f8fafc; --border-color: #e2e8f0;
-            --text-main: #1e293b; --text-dim: #64748b;
+            --primary: #007AFF; 
+            --primary-dark: #0056b3;
+            --bg-dark: #000000; 
+            --card-bg: #0A0C10; 
+            --input-bg: #161B22; 
+            --border-color: #30363D;
+            --text-main: #FFFFFF; 
+            --text-dim: #8B949E; 
+            --success: #3FB950; 
+            --danger: #F85149;
         }
 
         body { 
-            background: var(--bg-dark); color: var(--text-main); font-family: 'Segoe UI', Roboto, sans-serif; 
-            display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; transition: 0.3s;
-        }
-
-        .theme-toggle {
-            position: fixed; top: 10px; right: 10px; background: transparent; border: none;
-            color: var(--text-dim); cursor: pointer; font-size: 18px; z-index: 100; opacity: 0.6;
+            background: var(--bg-dark); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; 
+            transition: 0.3s;
         }
 
         .container { 
-            background: var(--card-bg); width: 100%; max-width: 500px; padding: 25px; 
-            border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
+            background: var(--card-bg); width: 100%; max-width: 480px; padding: 30px; 
+            border-radius: 28px; 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
             box-sizing: border-box;
         }
 
-        h1, h2 { text-align: center; background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; margin-top: 0; }
-        h1 { font-size: 22px; }
-        h2 { font-size: 18px; margin-bottom: 15px; }
+        h1 { 
+            text-align: center; font-size: 24px; font-weight: 800; margin-bottom: 25px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #8B949E 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        h2 { font-size: 18px; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
 
         .social-selector { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px; 
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; 
         }
 
         .social-option { 
-            background: var(--input-bg); padding: 15px 5px; border-radius: 12px; text-align: center; 
-            cursor: pointer; border: 1px solid var(--border-color); color: var(--text-dim); transition: 0.2s; 
+            background: var(--input-bg); padding: 18px 0; border-radius: 16px; text-align: center; 
+            cursor: pointer; border: 1px solid transparent; color: var(--text-dim); transition: 0.3s; 
         }
 
-        .social-option i { font-size: 24px; pointer-events: none; }
-        .social-option.active { border-color: var(--accent-blue); background: rgba(14, 165, 233, 0.1); color: var(--text-main); }
+        .social-option i { font-size: 24px; }
+        .social-option.active { 
+            border-color: var(--primary); 
+            background: rgba(0, 122, 255, 0.1); 
+            color: var(--primary); 
+            transform: translateY(-2px);
+        }
 
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 6px; font-size: 11px; font-weight: 700; color: var(--text-dim); letter-spacing: 0.8px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
         
         select, input { 
-            width: 100%; padding: 12px; border-radius: 10px; background: var(--input-bg); 
+            width: 100%; padding: 14px; border-radius: 12px; background: var(--input-bg); 
             color: var(--text-main); border: 1px solid var(--border-color); outline: none; box-sizing: border-box; 
+            font-size: 15px; transition: 0.2s;
         }
 
-        #contenedor-precio { text-align: center; margin: 15px 0; }
-        #precio-tachado { font-size: 18px; color: var(--text-dim); text-decoration: line-through; margin-right: 10px; }
-        #precio { font-size: 30px; font-weight: 800; color: var(--success); }
+        input:focus, select:focus { border-color: var(--primary); background: #1c2128; }
+
+        #contenedor-precio { 
+            text-align: center; margin: 20px 0; padding: 20px; 
+            background: rgba(255,255,255,0.02); border-radius: 20px;
+        }
+        #precio { font-size: 38px; font-weight: 800; color: var(--text-main); }
         
         .btn { 
-            width: 100%; padding: 14px; border-radius: 12px; border: none; font-weight: 700; 
-            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; color: #fff;
+            width: 100%; padding: 16px; border-radius: 16px; border: none; font-weight: 700; font-size: 16px;
+            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s;
         }
 
-        #agregar { background: var(--brand-gradient); }
-        #whatsapp { background: #25d366; margin-top: 15px; }
+        #agregar { background: var(--primary); color: #fff; }
+        #agregar:hover { background: var(--primary-dark); transform: scale(1.02); }
+        
+        #whatsapp { 
+            background: #25d366; 
+            color: #ffffff;      
+            margin-top: 15px; 
+        }
+
+        #whatsapp:hover { opacity: 0.9; transform: scale(1.01); }
         
         .cart-section { 
-            margin-top: 25px; background: rgba(0,0,0,0.1); padding: 15px; 
-            border-radius: 16px; border: 1px solid var(--border-color); width: 100%; box-sizing: border-box;
+            margin-top: 30px; padding: 20px; border-radius: 20px; 
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border-color);
         }
 
-        /* FAQ Integrada */
-        .faq-section { 
-            margin-top: 25px; 
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color); 
-            width: 100%; 
-            box-sizing: border-box;
-        }
-
-        ul { list-style: none; padding: 0; margin: 0; }
+        ul { list-style: none; padding: 0; }
         li { 
-            background: var(--card-bg); margin-bottom: 8px; padding: 10px; border-radius: 10px; 
-            display: flex; justify-content: space-between; align-items: center; font-size: 12px; border: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.03); margin-bottom: 10px; padding: 12px; border-radius: 12px; 
+            display: flex; justify-content: space-between; align-items: center; font-size: 13px;
         }
 
-        .btn-borrar { background: rgba(239, 68, 68, 0.1); color: var(--danger); border: none; padding: 5px 8px; border-radius: 6px; cursor: pointer; }
-        #total { text-align: right; font-size: 16px; font-weight: 700; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border-color); }
+        .btn-borrar { background: none; color: var(--danger); border: none; cursor: pointer; font-size: 16px; }
+        #total { text-align: right; font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 15px; }
 
-        .faq-item { margin-bottom: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
-        .faq-item:last-child { border-bottom: none; }
-        .faq-question { font-size: 13px; font-weight: 700; color: var(--accent-blue); margin-bottom: 4px; display: block; }
-        .faq-answer { font-size: 12px; color: var(--text-dim); line-height: 1.4; }
+        .faq-section { margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .faq-item { margin-bottom: 15px; }
+        .faq-question { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 5px; display: block; }
+        .faq-answer { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
     </style>
 </head>
 <body>
 
-<button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-
 <div class="container">
-    <h1>Impulsa tus redes</h1>
+    <h1>Insta Growth</h1>
     
-    <label>RED SOCIAL</label>
+    <label>Plataforma</label>
     <div class="social-selector" id="socialSelector">
         <div class="social-option active" data-red="Instagram"><i class="fab fa-instagram"></i></div>
         <div class="social-option" data-red="Facebook"><i class="fab fa-facebook"></i></div>
@@ -126,74 +136,62 @@
     </div>
 
     <div class="form-group">
-        <label>SERVICIO</label>
+        <label>Servicio Profesional</label>
         <select id="servicio"></select>
     </div>
 
     <div class="form-group">
-        <label>CANTIDAD</label>
+        <label>Cantidad</label>
         <input type="number" id="cantidad" value="1000" min="100" step="100">
     </div>
 
     <div class="form-group">
-        <label>ENLACE / USUARIO</label>
-        <input type="text" id="linkSocial" placeholder="Pega el link aquí...">
+        <label>Enlace del perfil o publicación</label>
+        <input type="text" id="linkSocial" placeholder="https://instagram.com/tu_usuario">
     </div>
 
     <div id="contenedor-precio">
-        <span id="precio-tachado">0.00€</span>
         <div id="precio">0.00€</div>
     </div>
     
-    <button id="agregar" class="btn"><i class="fas fa-cart-plus"></i> Añadir al Pedido</button>
+    <button id="agregar" class="btn">Añadir al Carrito</button>
 
     <div class="cart-section">
-        <h2><i class="fas fa-shopping-bag"></i> Mi Pedido</h2>
+        <h2><i class="fas fa-shopping-cart"></i> Resumen del Pedido</h2>
         <ul id="carrito"></ul>
         <div id="total">Total: 0.00€</div>
-        <button id="whatsapp" class="btn"><i class="fab fa-whatsapp"></i> Enviar a WhatsApp</button>
+        <button id="whatsapp" class="btn"><i class="fab fa-whatsapp"></i> Finalizar Pedido</button>
     </div>
 
     <div class="faq-section">
-        <h2><i class="fas fa-question-circle"></i> Preguntas Frecuentes</h2>
         <div class="faq-item">
             <span class="faq-question">¿Es seguro para mi cuenta?</span>
-            <p class="faq-answer">Sí, utilizamos métodos seguros que no ponen en riesgo tu perfil. No requerimos contraseñas.</p>
+            <p class="faq-answer">Totalmente. Utilizamos métodos orgánicos que cumplen con las normativas vigentes. Sin contraseñas.</p>
         </div>
         <div class="faq-item">
-            <span class="faq-question">¿Cuánto tarda en llegar?</span>
-            <p class="faq-answer">La mayoría de los servicios inician en 1-12 horas después de confirmar el pago vía WhatsApp.</p>
-        </div>
-        <div class="faq-item">
-            <span class="faq-question">¿Cómo realizo el pago?</span>
-            <p class="faq-answer">Al hacer clic en "Enviar a WhatsApp", un asesor te enviará los métodos de pago disponibles.</p>
+            <span class="faq-question">Tiempos de entrega</span>
+            <p class="faq-answer">Activación inmediata. Verás resultados en un plazo de 1 a 12 horas.</p>
         </div>
     </div>
 </div>
 
 <script>
 const data = {
-    Instagram: { Seguidores: 6, Vistas: 3, Likes: 3, Repost: 3, Comentarios: 5 },
-    Facebook: { Seguidores: 6, Likes: 5, Vistas: 5, "Miembros de grupo": 16 },
+    Instagram: { Seguidores: 8, Vistas: 4, Likes: 4, Repost: 4, Comentarios: 5 },
+    Facebook: { Seguidores: 8, Likes: 5, Vistas: 5, "Miembros de grupo": 16 },
     YouTube: { Suscriptores: 32, Vistas: 5, Likes: 5, Comentarios: 13 },
-    TikTok: { Seguidores: 6, Likes: 3, Vistas: 3, "Guardados/descargas": 3 },
+    TikTok: { Seguidores: 8, Likes: 4, Vistas: 4, "Guardados/descargas": 3 },
     X: { Seguidores: 35, Likes: 8, Retweets: 12, Vistas: 2 },
     Telegram: { Miembros: 8, Vistas: 4, Reacciones: 4, Comentarios: 9.50 },
     WhatsApp: { Miembros: 15, Reacciones: 10 },
     Threads: { Seguidores: 8 },
-    Twitch: { Seguidores: 4, Vistas: 5, "Vistas Live 15 min": 5, "Vistas Live 30 min": 8, "Vistas Live 90 min": 20 }
+    Twitch: { Seguidores: 6, Vistas: 5, "Vistas Live 15 min": 5, "Vistas Live 30 min": 8, "Vistas Live 90 min": 20 }
 };
 
 let redSeleccionada = "Instagram", carrito = [];
 const $ = id => document.getElementById(id);
-
 const servSel = $("servicio"), cantInp = $("cantidad"), precTxt = $("precio"), 
-      tachTxt = $("precio-tachado"), carrUl = $("carrito"), linkInp = $("linkSocial");
-
-$("themeToggle").onclick = () => {
-    const isLight = document.body.classList.toggle("light-mode");
-    $("themeToggle").innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-};
+      carrUl = $("carrito"), linkInp = $("linkSocial");
 
 document.querySelectorAll('.social-option').forEach(opt => {
     opt.onclick = () => {
@@ -214,13 +212,11 @@ const actualizarPrecio = () => {
     const precioBase = data[redSeleccionada][servSel.value];
     const total = (precioBase / 1000 * (parseInt(cantInp.value) || 0));
     precTxt.textContent = `${total.toFixed(2)}€`;
-    tachTxt.textContent = `${(total * 2).toFixed(2)}€`;
 };
 
 $("agregar").onclick = () => {
     const cant = parseInt(cantInp.value), link = linkInp.value.trim();
-    if(!link) return alert("Por favor, pega el link");
-    if(cant < 100) return alert("Mínimo 100");
+    if(!link) return alert("Por favor, introduce el enlace");
     
     carrito.push({ 
         red: redSeleccionada, 
@@ -237,8 +233,8 @@ const renderCarrito = () => {
     let t = 0;
     carrUl.innerHTML = carrito.map((item, i) => {
         t += item.precio;
-        return `<li><div><strong>${item.red}</strong><br>${item.cantidad} ${item.servicio}</div>
-        <div>${item.precio.toFixed(2)}€ <button class="btn-borrar" onclick="eliminar(${i})">✕</button></div></li>`;
+        return `<li><div><strong>${item.red}</strong> · ${item.cantidad} ${item.servicio}</div>
+        <div>${item.precio.toFixed(2)}€ <button class="btn-borrar" onclick="eliminar(${i})">&times;</button></div></li>`;
     }).join('');
     $("total").textContent = `Total: ${t.toFixed(2)}€`;
 };
@@ -246,10 +242,10 @@ const renderCarrito = () => {
 window.eliminar = i => { carrito.splice(i, 1); renderCarrito(); };
 
 $("whatsapp").onclick = () => {
-    if (!carrito.length) return alert("Carrito vacío");
-    let msg = "*NUEVO PEDIDO*%0A%0A" + carrito.map((item, i) => 
-        `*${i+1}. ${item.red}* - ${item.cantidad} ${item.servicio}%0ALink: ${item.link}%0A`).join('%0A');
-    window.open(`https://wa.me/595985760515?text=${msg}%0A*TOTAL: ${$("total").textContent}*`, "_blank");
+    if (!carrito.length) return alert("El carrito está vacío");
+    let msg = "*NUEVO PEDIDO - INSTAGROWTH*%0A" + carrito.map((item, i) => 
+        `%0A*${i+1}. ${item.red}* - ${item.cantidad} ${item.servicio}%0AEnlace: ${item.link}`).join('%0A');
+    window.open(`https://wa.me/595985760515?text=${msg}%0A%0A*TOTAL: ${$("total").textContent}*`, "_blank");
 };
 
 [servSel, cantInp].forEach(el => el.oninput = actualizarPrecio);
