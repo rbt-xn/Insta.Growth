@@ -4,131 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insta Growth | Premium Social Boost</title>
-    
-    <link rel="icon" type="image/jpg" href="662625.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root { 
-            --primary: #007AFF; 
-            --primary-dark: #0056b3;
-            --bg-dark: #000000; 
-            --card-bg: #0A0C10; 
-            --input-bg: #161B22; 
-            --border-color: #30363D;
-            --text-main: #FFFFFF; 
-            --text-dim: #8B949E; 
-            --success: #3FB950; 
-            --danger: #F85149;
-        }
+    <style>  
+        :root {   
+            --primary: #007AFF;   
+            --bg-dark: #000000;   
+            --card-bg: #0A0C10;   
+            --input-bg: #161B22;   
+            --text-main: #FFFFFF;   
+            --text-dim: #8B949E;   
+        }  
 
-        body { 
-            background: var(--bg-dark); 
-            color: var(--text-main); 
-            font-family: 'Inter', sans-serif; 
-            display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; 
-            transition: 0.3s;
-        }
-
-        .container { 
-            background: var(--card-bg); width: 100%; max-width: 480px; padding: 20px; 
-            border-radius: 28px; 
-            border: none; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4); 
-            box-sizing: border-box;
-        }
-
-        h1 { 
-            text-align: center; font-size: 50px; font-weight: 1000; margin-bottom: 30px;
-            background: linear-gradient(180deg, #FFFFFF 30%, #8B949E 70%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .pill-title {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 16px;
-            background: rgba(0, 122, 255, 0.1);
-            border: 1px solid rgba(0, 122, 255, 0.3);
-            border-radius: 50px;
-            color: var(--primary);
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
-        }
-
-        h2 { font-size: 18px; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
-
-        .social-selector { 
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; 
-        }
-
-        .social-option { 
-            background: var(--input-bg); padding: 18px 0; border-radius: 20px; text-align: center; 
-            cursor: pointer; border: 1px solid transparent; color: var(--text-dim); transition: 0.3s; 
-        }
-
-        .social-option i { font-size: 24px; }
-        .social-option.active { 
-            border-color: var(--primary); 
-            background: rgba(0, 122, 255, 0.1); 
-            color: var(--primary); 
-            transform: translateY(-2px);
-        }
-
-        .form-group { margin-bottom: 20px; }
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+        body { background: var(--bg-dark); color: var(--text-main); font-family: 'Inter', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; margin: 0; }  
+        .container { background: var(--card-bg); width: 100%; max-width: 480px; padding: 20px; border-radius: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }  
         
-        select, input { 
-            width: 100%; padding: 14px; border-radius: 28px; background: var(--input-bg); 
-            color: var(--text-main); border: none; 
-            outline: none; box-sizing: border-box; 
-            font-size: 15px; transition: 0.2s;
-        }
+        h1 { text-align: center; font-size: 50px; font-weight: 1000; margin-bottom: 30px; background: linear-gradient(180deg, #FFFFFF 30%, #8B949E 70%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }  
+        .pill-title { display: inline-flex; padding: 6px 16px; background: rgba(0, 122, 255, 0.1); border: 1px solid rgba(0, 122, 255, 0.3); border-radius: 50px; color: var(--primary); font-size: 13px; font-weight: 600; margin-bottom: 12px; }  
 
-        input:focus, select:focus { border: 1px solid var(--primary); background: #1c2128; }
+        .social-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }  
+        .social-option { background: var(--input-bg); padding: 18px 0; border-radius: 20px; text-align: center; cursor: pointer; color: var(--text-dim); transition: 0.3s; border: 1px solid transparent; }
+        .social-option i { font-size: 28px; }
+        .social-option.active { border-color: var(--primary); background: rgba(0, 122, 255, 0.1); color: var(--primary); transform: translateY(-2px); }  
 
-        #contenedor-precio { 
-            text-align: center; margin: 20px 0; padding: 20px; 
-            background: rgba(255,255,255,0.02); border-radius: 28px;
-        }
-        #precio { font-size: 38px; font-weight: 800; color: var(--text-main); }
-        
-        .btn { 
-            width: 100%; padding: 16px; border-radius: 28px; border: none; font-weight: 700; font-size: 16px;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s;
-        }
+        .form-group { margin-bottom: 20px; }  
+        select, input { width: 100%; padding: 14px; border-radius: 28px; background: var(--input-bg); color: var(--text-main); border: 1px solid transparent; outline: none; font-size: 15px; }  
+        input:focus { border-color: var(--primary); }  
 
-        #agregar { background: var(--primary); color: #fff; }
-        #agregar:hover { background: var(--primary-dark); transform: scale(1.02); }
-        
-        #whatsapp { 
-            background: #25d366; 
-            color: #ffffff;      
-            margin-top: 15px; 
-        }
+        #contenedor-precio { text-align: center; margin: 20px 0; padding: 20px; background: rgba(255,255,255,0.02); border-radius: 28px; }  
+        #precio { font-size: 38px; font-weight: 800; }  
 
-        #whatsapp:hover { opacity: 0.9; transform: scale(1.01); }
-        
-        .cart-section { 
-            margin-top: 30px; padding: 20px; border-radius: 28px; 
-            background: rgba(255,255,255,0.03); border: none; /* Línea blanca eliminada de resumen del pedido */
-        }
+        .btn { width: 100%; padding: 16px; border-radius: 28px; border: none; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; }
+        #agregar { background: var(--primary); color: #fff; }  
+        #whatsapp { background: #25d366; color: #fff; margin-top: 15px; }  
+        .btn:active { transform: scale(0.96); }
 
-        ul { list-style: none; padding: 0; }
-        li { 
-            background: rgba(255,255,255,0.03); margin-bottom: 10px; padding: 12px; border-radius: 12px; 
-            display: flex; justify-content: space-between; align-items: center; font-size: 13px;
-        }
+        .cart-section { margin-top: 30px; padding: 20px; border-radius: 28px; background: rgba(255,255,255,0.03); }  
+        li { background: rgba(255,255,255,0.03); margin-bottom: 10px; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }  
+        .btn-borrar { background: none; color: #F85149; border: none; cursor: pointer; font-size: 18px; }  
+        #total { text-align: right; font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 15px; }  
 
-        .btn-borrar { background: none; color: var(--danger); border: none; cursor: pointer; font-size: 16px; }
-        #total { text-align: right; font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 15px; }
-
-        .faq-section { margin-top: 30px; border-top: 1px solid var(--border-color); padding-top: 20px; }
-        .faq-item { margin-bottom: 15px; }
-        .faq-question { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 5px; display: block; }
-        .faq-answer { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+        .faq-section { margin-top: 25px; padding: 0 10px; }  
+        .faq-item { margin-bottom: 12px; }  
+        .faq-question { color: var(--primary); font-size: 14px; font-weight: 600; cursor: pointer; display: block; border: none; background: none; padding: 0; text-align: left; width: 100%; }
+        .faq-answer { font-size: 13px; color: var(--text-dim); line-height: 1.5; display: none; margin-top: 5px; padding-left: 2px; }
     </style>
 </head>
 <body>
@@ -160,8 +80,8 @@
     </div>
 
     <div class="form-group">
-        <div class="pill-title">Enlace del perfil o user</div>
-        <input type="text" id="linkSocial" 
+        <div class="pill-title">Enlace o Usuario</div>
+        <input type="text" id="linkSocial" placeholder="https://...">
     </div>
 
     <div id="contenedor-precio">
@@ -171,7 +91,7 @@
     <button id="agregar" class="btn">Añadir al Carrito</button>
 
     <div class="cart-section">
-        <h2><i class="fas fa-shopping-cart"></i> Resumen del Pedido</h2>
+        <h2 style="font-size: 18px;"><i class="fas fa-shopping-cart"></i> Resumen del Pedido</h2>
         <ul id="carrito"></ul>
         <div id="total">Total: 0.00€</div>
         <button id="whatsapp" class="btn"><i class="fab fa-whatsapp"></i> Finalizar Pedido</button>
@@ -179,12 +99,24 @@
 
     <div class="faq-section">
         <div class="faq-item">
-            <span class="faq-question">¿Es seguro para mi cuenta?</span>
-            <p class="faq-answer">Totalmente. Utilizamos métodos orgánicos que cumplen con las normativas vigentes. Sin contraseñas.</p>
+            <button class="faq-question" onclick="toggleFaq(this)">¿Es seguro para mi cuenta?</button>
+            <div class="faq-answer">Totalmente. Utilizamos métodos que cumplen con las normativas. No pedimos contraseñas.</div>
         </div>
         <div class="faq-item">
-            <span class="faq-question">Tiempos de entrega</span>
-            <p class="faq-answer">Activación inmediata. Verás resultados en un plazo de 1 a 12 horas.</p>
+            <button class="faq-question" onclick="toggleFaq(this)">Tiempos de entrega</button>
+            <div class="faq-answer">Activación inmediata. Verás resultados en un plazo de 1 a 12 horas.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">¿Tienen garantia?</button>
+            <div class="faq-answer">Ofrecemos servicios con garantía de reposición si hay caídas significativas.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">¿Qué métodos de pago aceptan?</button>
+            <div class="faq-answer">Al hacer clic en finalizar pedido, acordaremos el pago por WhatsApp (Binance pay, Bizum,Transferencias y Gift Cards).</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">¿Hacen reembolsos?</button>
+            <div class="faq-answer">Si el servicio no se inicia en 48h por error técnico, se devuelve el dinero.</div>
         </div>
     </div>
 </div>
@@ -192,21 +124,21 @@
 <script>
 const data = {
     Instagram: { Seguidores: 8, Vistas: 4, Likes: 4, Repost: 4, Comentarios: 5 },
-    Facebook: { Seguidores: 8, Likes: 5, Vistas: 5, "Miembros de grupo": 16 },
+    Facebook: { Seguidores: 8, Likes: 5, Vistas: 5, "Miembros": 16 },
     YouTube: { Suscriptores: 32, Vistas: 5, Likes: 5, Comentarios: 13 },
-    TikTok: { Seguidores: 8, Likes: 4, Vistas: 4, "Guardados/descargas": 3 },
+    TikTok: { Seguidores: 8, Likes: 4, Vistas: 4, "Guardados": 3 },
     X: { Seguidores: 35, Likes: 8, Retweets: 12, Vistas: 2 },
     Telegram: { Miembros: 8, Vistas: 4, Reacciones: 4, Comentarios: 9.50 },
     WhatsApp: { Miembros: 15, Reacciones: 10 },
     Threads: { Seguidores: 8 },
-    Twitch: { Seguidores: 6, Vistas: 5, "Vistas Live 15 min": 5, "Vistas Live 30 min": 8, "Vistas Live 90 min": 20 }
+    Twitch: { Seguidores: 6, Vistas: 5, "Live 15m": 5, "Live 30m": 8, "Live 90m": 20 }
 };
 
 let redSeleccionada = "Instagram", carrito = [];
 const $ = id => document.getElementById(id);
-const servSel = $("servicio"), cantInp = $("cantidad"), precTxt = $("precio"), 
-      carrUl = $("carrito"), linkInp = $("linkSocial");
+const servSel = $("servicio"), cantInp = $("cantidad"), precTxt = $("precio"), carrUl = $("carrito"), linkInp = $("linkSocial");
 
+// Cambiar plataforma
 document.querySelectorAll('.social-option').forEach(opt => {
     opt.onclick = () => {
         document.querySelector('.social-option.active').classList.remove('active');
@@ -217,27 +149,27 @@ document.querySelectorAll('.social-option').forEach(opt => {
 });
 
 const cargarServicios = () => {
-    const servicios = Object.keys(data[redSeleccionada]);
-    servSel.innerHTML = servicios.map(s => `<option value="${s}">${s}</option>`).join('');
+    servSel.innerHTML = Object.keys(data[redSeleccionada]).map(s => `<option value="${s}">${s}</option>`).join('');
     actualizarPrecio();
 };
 
 const actualizarPrecio = () => {
     const precioBase = data[redSeleccionada][servSel.value];
-    const total = (precioBase / 1000 * (parseInt(cantInp.value) || 0));
-    precTxt.textContent = `${total.toFixed(2)}€`;
+    precTxt.textContent = `${(precioBase / 1000 * (parseInt(cantInp.value) || 0)).toFixed(2)}€`;
+};
+
+const toggleFaq = (btn) => {
+    const ans = btn.nextElementSibling;
+    const isVisible = ans.style.display === "block";
+    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = "none");
+    ans.style.display = isVisible ? "none" : "block";
 };
 
 $("agregar").onclick = () => {
-    const cant = parseInt(cantInp.value), link = linkInp.value.trim();
-    if(!link) return alert("Por favor, introduce el enlace");
-    
+    if(!linkInp.value.trim()) return alert("Falta el enlace");
     carrito.push({ 
-        red: redSeleccionada, 
-        servicio: servSel.value, 
-        cantidad: cant, 
-        precio: parseFloat(precTxt.textContent), 
-        link 
+        red: redSeleccionada, servicio: servSel.value, cantidad: cantInp.value, 
+        precio: parseFloat(precTxt.textContent), link: linkInp.value 
     });
     linkInp.value = "";
     renderCarrito();
@@ -247,8 +179,7 @@ const renderCarrito = () => {
     let t = 0;
     carrUl.innerHTML = carrito.map((item, i) => {
         t += item.precio;
-        return `<li><div><strong>${item.red}</strong> · ${item.cantidad} ${item.servicio}</div>
-        <div>${item.precio.toFixed(2)}€ <button class="btn-borrar" onclick="eliminar(${i})">&times;</button></div></li>`;
+        return `<li><div><strong>${item.red}</strong> · ${item.cantidad}</div><div>${item.precio.toFixed(2)}€ <button class="btn-borrar" onclick="eliminar(${i})">&times;</button></div></li>`;
     }).join('');
     $("total").textContent = `Total: ${t.toFixed(2)}€`;
 };
@@ -256,7 +187,7 @@ const renderCarrito = () => {
 window.eliminar = i => { carrito.splice(i, 1); renderCarrito(); };
 
 $("whatsapp").onclick = () => {
-    if (!carrito.length) return alert("El carrito está vacío");
+    if (!carrito.length) return alert("Carrito vacío");
     let msg = "*NUEVO PEDIDO - INSTAGROWTH*%0A" + carrito.map((item, i) => 
         `%0A*${i+1}. ${item.red}* - ${item.cantidad} ${item.servicio}%0AEnlace: ${item.link}`).join('%0A');
     window.open(`https://wa.me/595985760515?text=${msg}%0A%0A*TOTAL: ${$("total").textContent}*`, "_blank");
