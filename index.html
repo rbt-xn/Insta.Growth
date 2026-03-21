@@ -14,6 +14,7 @@
             --input-bg: #161B22;   
             --text-main: #FFFFFF;   
             --text-dim: #8B949E;   
+            --success: #25d366;
         }  
 
         * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
@@ -21,7 +22,19 @@
         .container { background: var(--card-bg); width: 100%; max-width: 480px; padding: 20px; border-radius: 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }  
         
         h1 { text-align: center; font-size: 50px; font-weight: 1000; margin-bottom: 30px; background: linear-gradient(180deg, #FFFFFF 30%, #8B949E 70%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }  
-        .pill-title { display: inline-flex; padding: 6px 16px; background: rgba(0, 122, 255, 0.1); border: 1px solid rgba(0, 122, 255, 0.3); border-radius: 50px; color: var(--primary); font-size: 13px; font-weight: 600; margin-bottom: 12px; }  
+        
+        /* ESTILO DE TÍTULOS (PILLS) */
+        .pill-title { 
+            display: inline-flex; 
+            padding: 6px 16px; 
+            background: rgba(0, 122, 255, 0.1); 
+            border: 1px solid rgba(0, 122, 255, 0.3); 
+            border-radius: 50px; 
+            color: var(--primary); 
+            font-size: 13px; 
+            font-weight: 600; 
+            margin-bottom: 12px; 
+        }  
 
         .social-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }  
         .social-option { background: var(--input-bg); padding: 18px 0; border-radius: 20px; text-align: center; cursor: pointer; color: var(--text-dim); transition: 0.3s; border: 1px solid transparent; }
@@ -37,13 +50,45 @@
 
         .btn { width: 100%; padding: 16px; border-radius: 28px; border: none; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.2s; }
         #agregar { background: var(--primary); color: #fff; }  
-        #whatsapp { background: #25d366; color: #fff; margin-top: 15px; }  
+        #whatsapp { background: var(--success); color: #fff; margin-top: 15px; }  
         .btn:active { transform: scale(0.96); }
 
         .cart-section { margin-top: 30px; padding: 20px; border-radius: 28px; background: rgba(255,255,255,0.03); }  
         li { background: rgba(255,255,255,0.03); margin-bottom: 10px; padding: 12px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; }  
         .btn-borrar { background: none; color: #F85149; border: none; cursor: pointer; font-size: 18px; }  
         #total { text-align: right; font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 15px; }  
+
+        /* NUEVOS ESTILOS INTEGRADOS PARA PRUEBAS */
+        .proof-section { margin: 20px 0; }
+        .proof-trigger-pill { 
+            cursor: pointer; 
+            transition: 0.2s; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .proof-trigger-pill:hover { background: rgba(0, 122, 255, 0.2); }
+        
+        .proof-content { 
+            display: none; 
+            margin-top: 15px; 
+            padding: 10px; 
+            background: rgba(255,255,255,0.02); 
+            border-radius: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        .proof-content img { 
+            width: 100%; 
+            border-radius: 12px; 
+            margin-bottom: 15px; 
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .proof-content img:last-child { margin-bottom: 0; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .faq-section { margin-top: 25px; padding: 0 10px; }  
         .faq-item { margin-bottom: 12px; }  
@@ -93,6 +138,23 @@
     <div class="cart-section">
         <h2 style="font-size: 18px;"><i class="fas fa-shopping-cart"></i> Resumen del Pedido</h2>
         <ul id="carrito"></ul>
+
+        <div class="proof-section">
+            <div class="pill-title proof-trigger-pill" onclick="toggleProof()">
+                <i class="fas fa-shield-check"></i> Ver pruebas de clientes
+            </div>
+            <div id="proofContent" class="proof-content">
+                <img src="61829191.png" alt="Prueba 1">
+                <img src="61829192.png" alt="Prueba 2">
+                <img src="61829193.png" alt="Prueba 3">
+                <img src="61829194.png" alt="Prueba 4">
+                <img src="61829195.png" alt="Prueba 5">
+                <img src="61829196.png" alt="Prueba 6">
+                <img src="61829197.png" alt="Prueba 7">
+                <p style="font-size: 11px; color: var(--text-dim); margin-top: 5px;">Resultados reales verificados recientemente.</p>
+            </div>
+        </div>
+
         <div id="total">Total: 0.00€</div>
         <button id="whatsapp" class="btn"><i class="fab fa-whatsapp"></i> Finalizar Pedido</button>
     </div>
@@ -137,6 +199,16 @@ const data = {
 let redSeleccionada = "Instagram", carrito = [];
 const $ = id => document.getElementById(id);
 const servSel = $("servicio"), cantInp = $("cantidad"), precTxt = $("precio"), carrUl = $("carrito"), linkInp = $("linkSocial");
+
+// Función para mostrar/ocultar prueba
+function toggleProof() {
+    const content = $("proofContent");
+    const isVisible = content.style.display === "block";
+    content.style.display = isVisible ? "none" : "block";
+    if(!isVisible) {
+        setTimeout(() => content.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+    }
+}
 
 // Cambiar plataforma
 document.querySelectorAll('.social-option').forEach(opt => {
