@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insta Growth | Premium Social Boost</title>
+    
+    <link rel="apple-touch-icon" href="1773664589807.png">
+    <link rel="icon" type="image/png" href="1773664589807.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="InstaGrowth">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>  
@@ -23,7 +29,6 @@
         
         h1 { text-align: center; font-size: 50px; font-weight: 1000; margin-bottom: 30px; background: linear-gradient(180deg, #FFFFFF 30%, #8B949E 70%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }  
         
-        /* ESTILO DE TÍTULOS (PILLS) */
         .pill-title { 
             display: inline-flex; 
             padding: 6px 16px; 
@@ -58,37 +63,15 @@
         .btn-borrar { background: none; color: #F85149; border: none; cursor: pointer; font-size: 18px; }  
         #total { text-align: right; font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 15px; }  
 
-        /* NUEVOS ESTILOS INTEGRADOS PARA PRUEBAS */
         .proof-section { margin: 20px 0; }
-        .proof-trigger-pill { 
-            cursor: pointer; 
-            transition: 0.2s; 
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .proof-trigger-pill { cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; }
         .proof-trigger-pill:hover { background: rgba(0, 122, 255, 0.2); }
         
-        .proof-content { 
-            display: none; 
-            margin-top: 15px; 
-            padding: 10px; 
-            background: rgba(255,255,255,0.02); 
-            border-radius: 20px;
-            animation: fadeIn 0.3s ease;
-        }
-        .proof-content img { 
-            width: 100%; 
-            border-radius: 12px; 
-            margin-bottom: 15px; 
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+        .proof-content { display: none; margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.02); border-radius: 20px; animation: fadeIn 0.3s ease; }
+        .proof-content img { width: 100%; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.05); }
         .proof-content img:last-child { margin-bottom: 0; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         .faq-section { margin-top: 25px; padding: 0 10px; }  
         .faq-item { margin-bottom: 12px; }  
@@ -200,7 +183,6 @@ let redSeleccionada = "Instagram", carrito = [];
 const $ = id => document.getElementById(id);
 const servSel = $("servicio"), cantInp = $("cantidad"), precTxt = $("precio"), carrUl = $("carrito"), linkInp = $("linkSocial");
 
-// Función para mostrar/ocultar prueba
 function toggleProof() {
     const content = $("proofContent");
     const isVisible = content.style.display === "block";
@@ -210,7 +192,6 @@ function toggleProof() {
     }
 }
 
-// Cambiar plataforma
 document.querySelectorAll('.social-option').forEach(opt => {
     opt.onclick = () => {
         document.querySelector('.social-option.active').classList.remove('active');
